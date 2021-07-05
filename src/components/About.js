@@ -1,7 +1,7 @@
 import React from 'react'
 const About = () => {
     return (
-        <div>
+        <div data-testid="about-1">
             <section className="section section--head section--head-fixed">
                 <div className="container">
                     <div className="row">

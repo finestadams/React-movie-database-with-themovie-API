@@ -40,10 +40,6 @@ function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   const getMovie = async (searchValue) => {
-    if (window.location.protocol !== 'https:') {
-      window.location = 'https:' + window.location.href.substring(window.location.protocol.length)
-      return // to stop app from mounting
-    } else {
 		const url = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${searchValue}`;
 		const response = await fetch(url);
 		const responseJson = await response.json();
@@ -51,7 +47,6 @@ function App() {
 			setMovies(responseJson.results);
       setFilteredData(responseJson.results);
 		}
-  }
 	};
 
   const getDiscover = async () => {
