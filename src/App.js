@@ -54,7 +54,6 @@ function App() {
     const resp = await fetch(url);
     const resJson =  await resp.json();
     if(resJson.results) {
-      console.log('this is discover', resJson)
       setDiscover(resJson.results);
     }
   };
@@ -93,8 +92,6 @@ useEffect(()=>{
 
 }, [genre,gte,lte,popularde])
 
-
-
 useEffect(() => {
   const timer = setTimeout(() => {
     getMovie(searchValue);
@@ -130,11 +127,13 @@ const MoviesWithId = ({match}) => {
     <TopRatedDetails topRated = {topRated.filter((tr) => tr.id == match.params.id)[0]} />
     )
   }
+
   const DiscoverWithId = ({match}) => {
     return (
     <DiscoveryDetails discover = {discover.filter((disc) => disc.id == match.params.id)[0]} />
     )
   }
+
   useEffect(() => {
 		const movieFavourites = JSON.parse(
 			localStorage.getItem('react-movie-app-favourites')
@@ -157,7 +156,7 @@ const MoviesWithId = ({match}) => {
 
   const removeFavouriteMovie = (movie) => {
 		const newFavouriteList = favourites.filter(
-			(favourite) => favourite.imdbID !== movie.imdbID
+			(favourite) => favourite.id !== movie.id
 		);
 		setFavourites(newFavouriteList);
 		saveToLocalStorage(newFavouriteList);
@@ -188,11 +187,13 @@ const handleYear = (event) => {
   });
   setMovies(result);
 }
+
 const handleSearch= () => {
   console.log("this is the value",searchValue)
 }
 
   return (
+
       <>
        <BrowserRouter>
         <Header isActive = {isActive} handleClick = {handleClick}
@@ -239,9 +240,8 @@ const handleSearch= () => {
                         <Route path="/popularlists/:id" exact component = {PopularWithId} /> 
                         <Route path="/topratedlists/:id" exact component = {TopRatedWithId} /> 
                         <Route path="/upcominglists/:id" exact component = {UpcomingWithId} />
-                        
-                      
                     </Switch>  
+                    
                     <Route path='/' exact render = {() => {
                       return(
                       <>
