@@ -50,7 +50,7 @@ function App() {
 	};
 
   const getDiscover = async () => {
-    const url = `https://api.themoviedb.org/3/discover/movie/?api_key=${API_KEY}&page=1&primary_release_date.gte=${gte}&primary_release_date.lte=${lte}&with_genres=${genre}&sort_by=${popularde}`;
+    const url = `http://api.themoviedb.org/3/discover/movie/?api_key=${API_KEY}&page=1&primary_release_date.gte=${gte}&primary_release_date.lte=${lte}&with_genres=${genre}&sort_by=${popularde}`;
     const resp = await fetch(url);
     const resJson =  await resp.json();
     if(resJson.results) {
