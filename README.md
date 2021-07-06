@@ -7,7 +7,7 @@ How to install
 
 Or 
 
-click on this to download manually  https://github.com/finestadams/movie-test
+Go to the url to download it manually  https://github.com/finestadams/movie-test
 
 
 After Installation
@@ -21,9 +21,9 @@ Access Api to show movies
 
 create a .env file on the root folder.
 
-add the following as shown inside folder
+add the following as shown inside the .env folder
 
-REACT_APP_API_KEY = f10633f345b174b34c9b6dcbd7cb6d08
+REACT_APP_API_KEY = API_KEY ("sent to your email")
 
 Start Application
 ================
