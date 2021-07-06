@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 
  const TopRatedDetails = ({topRated}) => {
     if(!topRated || !topRated.length){
-		return <div> No Top Movies </div>
+		return <div style={{marginTop: "20px", textAlign: "center", color: "white"}}><h1>No Top Movies </h1></div>
 	}
     const {id, poster_path,original_title, title,release_date,popularity,vote_count, overview} = topRated
     if(topRated === undefined){

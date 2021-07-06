@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
  const MovieList = (props) => {
 		if(!props.movies || !props.movies.length){
-			return <div> No Movies </div>
+			return <div style={{marginTop: "20px", textAlign: "center", color: "white"}}><h1> No Movies </h1></div>
 		}
     return (
 		<>

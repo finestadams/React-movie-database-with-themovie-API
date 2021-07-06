@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Popular = ({popularMovies}) => {
     if(!popularMovies || !popularMovies.length){
-		return <div> No Popular Movies </div>
+		return <div style={{marginTop: "20px", textAlign: "center", color: "white"}}><h1>No Popular Movies</h1></div>
 	}
     const settings = {
         dots: false,

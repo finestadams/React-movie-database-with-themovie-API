@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Discovery = ({discover}) => {
 	if(!discover || !discover.length){
-		return <div> No Discovered Movies </div>
+		return <div style={{marginTop: "20px", textAlign: "center", color: "white"}}>
+		<h1>  No Discovered Movies </h1>
+	</div>
 	}
     return (
         <>
