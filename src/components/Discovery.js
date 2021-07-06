@@ -3,13 +3,16 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Discovery = ({discover}) => {
+	if(!discover || !discover.length){
+		return <div> No Discovered Movies </div>
+	}
     return (
         <>
-		{
+		{ discover &&
 		discover.map((disc) => {
 			console.log("discovery list here",disc);
 			return  (
-				<div key ={disc.id} className="col-6 col-sm-4 col-lg-3 col-xl-2">
+				<div key ={disc.id} className="col-6 col-sm-4 col-lg-3 col-xl-2" id = "discover">
 					<div className="card">
 						<Link to = {`/discoverlists/${disc.id}`} className="card__cover">
 							<img src={`https://image.tmdb.org/t/p/original${disc.poster_path}`} alt="" />

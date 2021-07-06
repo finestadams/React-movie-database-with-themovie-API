@@ -2,6 +2,9 @@ import React from 'react'
 import { PropTypes } from 'prop-types';
 
  const TopRatedDetails = ({topRated}) => {
+    if(!topRated || !topRated.length){
+		return <div> No Top Movies </div>
+	}
     const {id, poster_path,original_title, title,release_date,popularity,vote_count, overview} = topRated
     if(topRated === undefined){
         topRated = localStorage.getItem('react-movie-app-favourites')

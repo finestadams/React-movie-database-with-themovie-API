@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
       console.log(discover)
 
     return (
-      <div className ="article">
+      <div className ="article" >
       <section className="row plyr__poster">
       <div className="col-xl-4 col-lg-4 ">
           <img className = "img-fluid" src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt="post" /> 

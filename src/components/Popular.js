@@ -4,6 +4,9 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Popular = ({popularMovies}) => {
+    if(!popularMovies || !popularMovies.length){
+		return <div> No Popular Movies </div>
+	}
     const settings = {
         dots: false,
         infinite: true,
@@ -57,7 +60,7 @@ const Popular = ({popularMovies}) => {
                             <div className="owl-stage-outer owl-height" >
                                 <div className="owl-stage" style={{margin: "30px"}}>
                                 <Slider {...settings}>
-                                {
+                                {popularMovies &&
                                     popularMovies.map((pop) => {
                                         return(
                                             <div key = {pop.id} className="owl-item" >

@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 const Search = (props) => {
     return (
         <>
-        <div className="catalog__nav"  >
+        <div className="catalog__nav" data-testid="search-1" >
             <div className="catalog__select-wrap">
-                <select  onChange = {(event) => props.handleGenre(event)} className="catalog__select" name="genres" > 
-                <option value={""}>{"All Genres"}</option>
-                    {Array.from (new Set (props.movies.map( m => m.media_type))).map(media_type => { 
-                            return (<option key ={media_type} value={media_type}>{`All ${media_type}`}</option>)  
+                <select data-testid="select" onChange = {(event) => props.handleGenre(event)} className="catalog__select" name="genres" > 
+                <option value={""} data-testid="select-option">{"All Genres"}</option>
+                    {props.movies && Array.from (new Set (props.movies.map( m => m.media_type))).map(media_type => { 
+                            return (<option  key ={media_type} value={media_type}>{`All ${media_type}`}</option>)  
                     })}
                 </select>
             </div>
@@ -18,6 +18,7 @@ const Search = (props) => {
                     <input className="header__form-input searchColor" type="text"
                     value={props.value} onChange={(event) => props.setSearchValue(event.target.value)}
                      placeholder="I'am looking for"
+                     data-testid="input-1"
                      />
             </div>
         </div>

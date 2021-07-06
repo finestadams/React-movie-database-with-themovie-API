@@ -53,7 +53,7 @@ const HomeSlider = ({upcoming}) => {
             <div className="owl-stage-outer owl-height" >
                 <div className="owl-stage">
                     <Slider {...settings}>
-                    {
+                    {upcoming &&
                     upcoming.map((upc) => {
                         return (
                             <div key = {upc.id} className="owl-item">

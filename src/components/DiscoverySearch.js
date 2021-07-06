@@ -4,7 +4,6 @@ import { PropTypes } from 'prop-types';
 const DiscoverySearch = (props) => {
    
     return (
-      
         <div className="catalog__nav">
             <div className="catalog__select-wrap">
                 <select className="catalog__select" name="genres" onChange = {(event) => props.setGenre(event.target.value)} >
