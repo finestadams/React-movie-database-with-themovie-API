@@ -50,7 +50,7 @@ function App() {
 	};
 
   const getDiscover = async () => {
-    const url = `http://api.themoviedb.org/3/discover/movie/?api_key=${API_KEY}&page=1&primary_release_date.gte=${gte}&primary_release_date.lte=${lte}&with_genres=${genre}&sort_by=${popularde}`;
+    const url = `https://api.themoviedb.org/3/discover/movie/?api_key=${API_KEY}&page=1&primary_release_date.gte=${gte}&primary_release_date.lte=${lte}&with_genres=${genre}&sort_by=${popularde}`;
     const resp = await fetch(url);
     const resJson =  await resp.json();
     if(resJson.results) {
@@ -75,6 +75,7 @@ function App() {
       setPopular(resJson.results);
     }
   }
+
   const getTopRated = async () => {
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
     const resp = await fetch(url);
@@ -84,6 +85,7 @@ function App() {
     }
   };
 
+//side effects to call api after mounting
 useEffect(()=>{
   getUpcoming(upcoming);
   getPopular(popular);
@@ -92,6 +94,8 @@ useEffect(()=>{
 
 }, [genre,gte,lte,popularde])
 
+//side effect to call api after component mount and set timeout of 5 second
+// to reduce multiple calls
 useEffect(() => {
   const timer = setTimeout(() => {
     getMovie(searchValue);
@@ -99,6 +103,8 @@ useEffect(() => {
   return () => clearTimeout(timer);
 }, [searchValue]);
 
+// component details pages for movies etc
+// this will get each page base on its unique id
 const MoviesWithId = ({match}) => {
     return(
       <MovieDetails 
@@ -143,6 +149,7 @@ const MoviesWithId = ({match}) => {
 		}
 	}, []);
 
+// setting up local storage - addd and remove favourites
   const saveToLocalStorage = (items) => {
 		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
 	};
@@ -162,13 +169,16 @@ const MoviesWithId = ({match}) => {
 		saveToLocalStorage(newFavouriteList);
 	};
 
+  // works on mobile to open or close mobile menu
 const handleClick = () => {
     setActive(!isActive);
  }
+// open or close search menu on mobile
  const handleOpen = () => {
   setOpen(!isOpen);
 }
 
+// filter by genre
  const handleGenre = (event) => {
   let value = event.target.value;
   let result = [];
@@ -178,6 +188,7 @@ const handleClick = () => {
   setMovies(result);
 }
 
+// filter by year
 const handleYear = (event) => {
   let value = event.target.value;
   let result = [];
