@@ -30,3 +30,7 @@ Start Application
 
 to start the application run " npm start " 
 
+Test Application
+================
+
+to run the test: "npm run test" on the root directory

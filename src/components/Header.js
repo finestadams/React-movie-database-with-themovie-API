@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 
 const Header = ({isActive,  handleClick, isOpen, handleOpen, handleSearch, setSearchValue}) => {
     return (
-        <header className={`header header--static ${isActive ? ' header--menu' : ''}` } data-testid="home">
+        <header className={`header header--static ${isActive ? ' header--menu' : ''}` }>
         <div className="container">
             <div className="row">
                 <div className="col-12">
