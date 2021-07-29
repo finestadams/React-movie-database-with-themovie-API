@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
- const DiscoveryDetails = ({discover}) => {
+ const DiscoveryDetails = ({discover, handleFavouritesClick, removeFavouriteMovie}) => {
       if(discover === undefined){
         discover = localStorage.getItem('react-movie-app-favourites')
         console.log("local storage",discover)
@@ -25,7 +25,11 @@ import PropTypes from 'prop-types';
                     <li>Vote_Count: {discover.vote_count}</li>
                 </ul>
                 <p>{discover.overview}</p> 
-          </div>    
+          </div>  
+          <div className="article__actions article__actions--details">
+                  <button onClick={() => handleFavouritesClick(discover)} className="article__favorites" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z"></path></svg>Add to favorites</button>:
+                  <button onClick = {() => removeFavouriteMovie(discover)} className="article__favorites" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2H8A3,3,0,0,0,5,5V21a1,1,0,0,0,.5.87,1,1,0,0,0,1,0L12,18.69l5.5,3.18A1,1,0,0,0,18,22a1,1,0,0,0,.5-.13A1,1,0,0,0,19,21V5A3,3,0,0,0,16,2Zm1,17.27-4.5-2.6a1,1,0,0,0-1,0L7,19.27V5A1,1,0,0,1,8,4h8a1,1,0,0,1,1,1Z"></path></svg>Remove from favourites</button>
+          </div>  
       </div>
   </section>
 </div>
@@ -34,6 +38,8 @@ import PropTypes from 'prop-types';
 
 DiscoveryDetails.propTypes = {
   discover: PropTypes.object,
+  handleFavouritesClick: PropTypes.func,
+  removeFavouriteMovie: PropTypes.func
 }
 
 export default DiscoveryDetails

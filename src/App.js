@@ -136,7 +136,10 @@ const MoviesWithId = ({match}) => {
 
   const DiscoverWithId = ({match}) => {
     return (
-    <DiscoveryDetails discover = {discover.filter((disc) => disc.id == match.params.id)[0]} />
+    <DiscoveryDetails
+    handleFavouritesClick={addFavouriteMovie}
+    removeFavouriteMovie = {removeFavouriteMovie}
+     discover = {discover.filter((disc) => disc.id == match.params.id)[0]} />
     )
   }
 
@@ -242,6 +245,7 @@ const handleSearch= () => {
                           return (<div className="row row--grid">
                           <h1 className="section__title section__title--head">My Favourites</h1>
                              <MovieList movies = {favourites} 
+                          
                              /> 
                              </div>)
                         }}/>

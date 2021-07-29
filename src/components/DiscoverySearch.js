@@ -7,7 +7,7 @@ const DiscoverySearch = (props) => {
         <div className="catalog__nav">
             <div className="catalog__select-wrap">
                 <select className="catalog__select" name="genres" onChange = {(event) => props.setGenre(event.target.value)} >
-                <option value={""}>{"All Genres"}</option>
+                <option value={""} data-testid="select-option">{"All Genres"}</option>
                 <option value={28}>Action</option>
                 <option value={12}>Adventure</option>
                 <option value={16}>Animation</option>
